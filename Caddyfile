@@ -1,0 +1,22 @@
+# Caddy configuration.
+# Docs: https://caddyserver.com/docs/
+# rate_limit module: https://github.com/mholt/caddy-ratelimit
+
+:80 {
+	root * /srv/www
+	file_server
+}
+
+# Example: per-client rate limiting (compiled into this caddy build).
+# Uncomment and adjust as needed:
+#
+# :80 {
+# 	rate_limit {
+# 		zone per_client {
+# 			key    {remote_host}
+# 			window 1m
+# 			events 100
+# 		}
+# 	}
+# 	respond "Hello"
+# }

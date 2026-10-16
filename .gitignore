@@ -1,0 +1,5 @@
+# OBS package working directory (created by osc)
+.osc/
+
+# scratch vendor dir while update-sources.sh runs
+src/vendor/

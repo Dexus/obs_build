@@ -1,0 +1,15 @@
+<services>
+  <!--
+    Vendors the Go dependencies of the wrapper module shipped in
+    caddy2-<version>.tar.gz. The service autodetects the archive from the
+    spec file name (caddy2.spec -> caddy2-*.tar.gz), runs
+    "go mod download && go mod verify && go mod vendor" server-side and
+    commits vendor.tar.gz, so the build workers stay offline.
+
+    mode="serveronly": committing does not require a local Go toolchain.
+    To regenerate locally instead: osc service run go_modules
+  -->
+  <service name="go_modules" mode="serveronly">
+    <param name="compress">gz</param>
+  </service>
+</services>
